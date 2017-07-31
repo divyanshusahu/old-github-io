@@ -1,0 +1,136 @@
+*{
+  box-sizing: border-box;
+}
+.row1::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+  width: 100%;
+}
+body{
+	background-color: black;
+	color: white;
+}
+.desktopdisplay{
+	display: none;
+}
+.start span{
+  border-style: double;
+  padding: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  font-family: 'Pacifico', cursive;
+  display: inline-block;
+  margin-top: 80%;
+}
+.start span:hover{
+  color:black;
+}
+.start a{
+  color: white;
+  text-decoration: none;
+}
+.start{
+	background-image: url("img/a.jpg");
+	height: 100vh;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.main{
+	margin: 10px;
+	padding: 20px 10px;
+	border-bottom: 1px solid rgb(50,50,50);
+  opacity: 0;
+}
+img{
+  margin: 10px 0;
+}
+.subhead{
+  border-bottom: 1px solid rgb(220,220,220);
+  padding: 5px;
+  width:75%;
+  margin: 2% 0;
+}
+p{
+  color:lightgrey;
+}
+.featured-projects img{
+  cursor: pointer;
+}
+#navita-info, #chat_php, #tic-tac-toe{
+  color:black;
+}
+#navita-info p, #chat_php p, #tic-tac-toe p{
+  color: black;
+  font-size: 16px;
+  font-style: oblique;
+}
+.progress{
+  background-color: grey;
+}
+.skills label{
+  font-size: 20px;
+}
+.contact-me p, .contact-me h3{
+  padding:0 2%;
+}
+.contact-me i{
+  font-size: 32px;
+  padding-right: 2%;
+}
+.contact-icons{
+  padding: 1% 2%;
+}
+.contact-icons a{
+  color: white;
+}
+.contact-icons i{
+  font-size: 40px;
+  padding: 0 2% 0 0;
+}
+
+
+@media only screen and (min-width: 600px) {
+	.col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+
+  .mobiledisplay{
+  	display: none;
+  }
+  .desktopdisplay{
+  	display: inline-block;
+  }
+  .introduction h2{
+  	font-size: 48px;
+  }
+  .introduction h4{
+  	font-size: 24px;
+  }
+  .subhead{
+    width:40%;
+  }
+  p{
+    font-size: 20px;
+  }
+  .start span{
+    margin-top:30%;
+  }
+  #navita-info, #chat_php, #tic-tac-toe{
+    margin-top: 10%;
+  }
+  
+ }
