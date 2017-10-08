@@ -61,10 +61,10 @@ p{
 .featured-projects img{
   cursor: pointer;
 }
-#navita-info, #chat_php, #tic-tac-toe{
+#bcrs, #tennis_game, #att_tracker{
   color:black;
 }
-#navita-info p, #chat_php p, #tic-tac-toe p{
+#bcrs p, #tennis_game p, #att_tracker p{
   color: black;
   font-size: 16px;
   font-style: oblique;
@@ -129,7 +129,7 @@ p{
   .start span{
     margin-top:30%;
   }
-  #navita-info, #chat_php, #tic-tac-toe{
+  #bcrs, #tennis_game, #att_tracker{
     margin-top: 10%;
   }
   
