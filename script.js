@@ -18,7 +18,8 @@ $(document).ready(function() {
 	}, 1000);
 
 	$(".mouse").click(function(){
-		window.scrollTo(0,window.innerHeight)
+		//setTimeout(function(){window.scrollTo(0,window.innerHeight)},2000)
+		$("html, body").animate({scrollTop:window.innerHeight},1500)
 	});
 
 	var pw = $('.skillsInfo').height();
