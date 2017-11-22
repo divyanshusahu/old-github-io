@@ -118,9 +118,9 @@
     line-height: 1.5;
 }
 
-#skills{
-    background-color: rgb(0,0,0);
-    color: rgb(255,255,255);
+#skills {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .education .fa {
@@ -149,6 +149,12 @@
     border-bottom: 1px solid lightgrey;
 }
 
+.value {
+    border-bottom: 2px solid rgb(200, 165, 0);
+    width: 50%;
+    margin: auto;
+}
+
 .work {
     width: 40%;
     margin: auto;
@@ -161,21 +167,21 @@
     margin-top: 50px;
 }
 
-.workimage{
+.workimage {
     transition: 1s;
     cursor: pointer;
 }
 
-.workimage:hover{
-    -webkit-transform: scale(1.1,1.1);
-       -moz-transform: scale(1.1,1.1);
-        -ms-transform: scale(1.1,1.1);
-         -o-transform: scale(1.1,1.1);
-            transform: scale(1.1,1.1);
+.workimage:hover {
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
     filter: blur(5px);
 }
 
-.listWork p{
+.listWork p {
     text-align: center;
     font-weight: bold;
     margin-top: 25px;
@@ -224,11 +230,11 @@
 .contactIcons:hover {
     color: white;
     background-color: rgb(200, 165, 0);
-    -webkit-transform: scale(1.1,1.1);
-       -moz-transform: scale(1.1,1.1);
-        -ms-transform: scale(1.1,1.1);
-         -o-transform: scale(1.1,1.1);
-            transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
 }
 
 .contactBackground a {
@@ -277,7 +283,42 @@
         height: auto;
     }
 
-    .image{
+    .image {
         background-size: 200% 100%;
+    }
+
+    .intro {
+        top: 60%;
+    }
+
+    .intro h1 {
+        font-size: 24px;
+    }
+
+    .nameBorder h2 {
+        font-size: 20px;
+    }
+
+    .work {
+        width: 90%;
+    }
+
+    .value {
+        width: 80%;
+    }
+
+    .listWork {
+        margin-top: 50px;
+    }
+
+    .heading {
+        width: 80%;
+        padding-top: 50px;
+    }
+
+    .contactIcons {
+        height: 60px;
+        width: 60px;
+        font-size: 40px;
     }
 }
