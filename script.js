@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var cw = $('.aboveProfile').width();
     $('#profile').css({
         'height': cw + 'px'
@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     //$(".mouseWheel").effect("shake", {direction: "down", times: 40, distance: 3},40000);
 
-    setInterval(function () {
+    setInterval(function() {
         $(".mouseWheel").effect("shake", {
             direction: "down",
             times: 1,
@@ -23,10 +23,10 @@ $(document).ready(function () {
         }, 1000);
     }, 1000);
 
-    $(".mouse").click(function () {
+    $(".mouse").click(function() {
         //setTimeout(function(){window.scrollTo(0,window.innerHeight)},2000)
         $("html, body").animate({
-            scrollTop: window.innerHeight
+            scrollTop: window.innerHeight - 100
         }, 1500);
     });
 
@@ -35,10 +35,15 @@ $(document).ready(function () {
             scrollTop: 3000
         }, 1500);
     });*/
+    if (window.innerWidth >= 768) {
+        var aw = $(".navigation-list").width();
+        $('.nav-list').css({
+            'width': aw / 5 + 'px'
+        });
+    }
 
-    var aw = $("#navigation-list").width();
-    $('.nav-list').css({
-        'width' : aw/5 + 'px'
+    $(".toggle").click(function(){
+        $(".navigation-list").toggleClass("up");
     });
 
     var pw = $('.skillsInfo').height();
@@ -51,7 +56,7 @@ $(document).ready(function () {
         'height': dw + 'px'
     });
 
-    $('.arrow').click(function () {
+    $('.arrow').click(function() {
         $('.arrow').css({
             'display': 'none'
         });
