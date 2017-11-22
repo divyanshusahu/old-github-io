@@ -5,7 +5,6 @@
 .navigation-bar {
     width: 100%;
     background-color: rgba(20, 20, 20, 1);
-    color: rgb(255, 255, 255);
     position: fixed;
     z-index: 100;
 }
@@ -119,6 +118,11 @@
     line-height: 1.5;
 }
 
+#skills{
+    background-color: rgb(0,0,0);
+    color: rgb(255,255,255);
+}
+
 .education .fa {
     font-size: 40px;
     color: rgb(200, 165, 0);
@@ -157,83 +161,28 @@
     margin-top: 50px;
 }
 
-.arrow {
-    margin: 40px 0;
-    text-align: center;
+.workimage{
+    transition: 1s;
     cursor: pointer;
 }
 
-.bounce {
-    -moz-animation: bounce 3s infinite;
-    -webkit-animation: bounce 3s infinite;
-    animation: bounce 3s infinite;
+.workimage:hover{
+    -webkit-transform: scale(1.1,1.1);
+       -moz-transform: scale(1.1,1.1);
+        -ms-transform: scale(1.1,1.1);
+         -o-transform: scale(1.1,1.1);
+            transform: scale(1.1,1.1);
+    filter: blur(5px);
 }
 
-@-moz-keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        -moz-transform: translateY(0);
-        transform: translateY(0);
-    }
-    40% {
-        -moz-transform: translateY(-30px);
-        transform: translateY(-30px);
-    }
-    60% {
-        -moz-transform: translateY(-15px);
-        transform: translateY(-15px);
-    }
-}
-
-@-webkit-keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    40% {
-        -webkit-transform: translateY(-30px);
-        transform: translateY(-30px);
-    }
-    60% {
-        -webkit-transform: translateY(-15px);
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        -moz-transform: translateY(0);
-        -ms-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    40% {
-        -moz-transform: translateY(-30px);
-        -ms-transform: translateY(-30px);
-        -webkit-transform: translateY(-30px);
-        transform: translateY(-30px);
-    }
-    60% {
-        -moz-transform: translateY(-15px);
-        -ms-transform: translateY(-15px);
-        -webkit-transform: translateY(-15px);
-        transform: translateY(-15px);
-    }
+.listWork p{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 25px;
 }
 
 .end {
-    margin: 50px 0;
+    margin: 150px 0;
 }
 
 .contactBackground {
@@ -274,7 +223,12 @@
 
 .contactIcons:hover {
     color: white;
-    background-color: rgb(200, 165, 0)
+    background-color: rgb(200, 165, 0);
+    -webkit-transform: scale(1.1,1.1);
+       -moz-transform: scale(1.1,1.1);
+        -ms-transform: scale(1.1,1.1);
+         -o-transform: scale(1.1,1.1);
+            transform: scale(1.1,1.1);
 }
 
 .contactBackground a {
@@ -321,5 +275,9 @@
 
     .navigation-bar .col-lg-6 {
         height: auto;
+    }
+
+    .image{
+        background-size: 200% 100%;
     }
 }

@@ -26,7 +26,7 @@ $(document).ready(function() {
     $(".mouse").click(function() {
         //setTimeout(function(){window.scrollTo(0,window.innerHeight)},2000)
         $("html, body").animate({
-            scrollTop: window.innerHeight - 100
+            scrollTop: window.innerHeight
         }, 1500);
     });
 
@@ -42,6 +42,94 @@ $(document).ready(function() {
         });
     }
 
+    $("#l1").click(function(){
+        $p = $("#home").offset().top;
+        $("html, body").animate({
+            scrollTop: $p
+        }, 1000);
+    });
+    $("#l2").click(function(){
+        $p = $("#about").offset().top;
+        $("html, body").animate({
+            scrollTop: $p
+        }, 1000);
+    });
+    $("#l3").click(function(){
+        $p = $("#skills").offset().top;
+        $("html, body").animate({
+            scrollTop: $p
+        }, 1000);
+    });
+    $("#l4").click(function(){
+        $p = $("#work").offset().top;
+        $("html, body").animate({
+            scrollTop: $p
+        }, 1000);
+    });
+    $("#l5").click(function(){
+        $p = $("#contact").offset().top;
+        $("html, body").animate({
+            scrollTop: $p
+        }, 1000);
+    });
+
+    function activenavigation(){
+        var h1 = Math.round($("#home").offset().top);
+        //console.log(h1);
+        var h2 = Math.round($("#about").offset().top);
+        //console.log(h2);
+        var h3 = Math.round($("#skills").offset().top) - 1;
+        //console.log(h3);
+        var h4 = Math.round($("#work").offset().top) - 1;
+        //console.log(h4);
+        var h5 = h4 + $("#work").height();
+        //console.log(h5);
+
+
+
+        $(window).on('scroll',function(){
+            var current = Math.round($(window).scrollTop());
+            //console.log(current);
+            if (current < h2){
+                $('#l1').css({'color':'rgb(200,165,0)'});
+                $('#l2').css({'color':'rgb(255,255,255)'});
+                $('#l3').css({'color':'rgb(255,255,255)'});
+                $('#l4').css({'color':'rgb(255,255,255)'});
+                $('#l5').css({'color':'rgb(255,255,255)'});
+            }
+            if (current >= h2 && current < h3){
+                $('#l1').css({'color':'rgb(255,255,255)'});
+                $('#l2').css({'color':'rgb(200,165,0)'});
+                $('#l3').css({'color':'rgb(255,255,255)'});
+                $('#l4').css({'color':'rgb(255,255,255)'});
+                $('#l5').css({'color':'rgb(255,255,255)'});
+            }
+            if (current >= h3 && current < h4){
+                $('#l1').css({'color':'rgb(255,255,255)'});
+                $('#l2').css({'color':'rgb(255,255,255)'});
+                $('#l3').css({'color':'rgb(200,165,0)'});
+                $('#l4').css({'color':'rgb(255,255,255)'});
+                $('#l5').css({'color':'rgb(255,255,255)'});
+            }
+            if (current >= h4 && current < h5){
+                $('#l1').css({'color':'rgb(255,255,255)'});
+                $('#l2').css({'color':'rgb(255,255,255)'});
+                $('#l3').css({'color':'rgb(255,255,255)'});
+                $('#l4').css({'color':'rgb(200,165,0)'});
+                $('#l5').css({'color':'rgb(255,255,255)'});
+            }
+            if (current == ($(document).height()- $(window).height())){
+                $('#l1').css({'color':'rgb(255,255,255)'});
+                $('#l2').css({'color':'rgb(255,255,255)'});
+                $('#l3').css({'color':'rgb(255,255,255)'});
+                $('#l4').css({'color':'rgb(255,255,255)'});
+                $('#l5').css({'color':'rgb(200,165,0)'});
+            }
+        });
+    }
+
+    activenavigation();
+
     $(".toggle").click(function(){
         $(".navigation-list").toggleClass("up");
     });
@@ -54,15 +142,6 @@ $(document).ready(function() {
     var dw = $('.work').height();
     $('.value').css({
         'height': dw + 'px'
-    });
-
-    $('.arrow').click(function() {
-        $('.arrow').css({
-            'display': 'none'
-        });
-        $('#listwork2').css({
-            'display': 'block'
-        });
     });
 
 });
