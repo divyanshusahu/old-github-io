@@ -12,6 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Anonymous Pro' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Cherry Cream Soda' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Corben' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
@@ -21,9 +22,28 @@
 
 <body>
 
+    <div class="navigation-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div id="name-heading" style="height: 100px; font-family: 'Aclonica';"><h1>divyanshu</h1></div>
+          </div>
+          <div class="col-lg-6">
+            <div id="navigation-list" style="height: 100px;">
+                <ul>
+                    <li><div class="nav-list"><a href="#home">Home</a></div></li>
+                    <li><div class="nav-list"><a href="#about">About</a></div></li>
+                    <li><div class="nav-list"><a href="#skills">Skills</a></div></li>
+                    <li><div class="nav-list"><a href="#work">Work</a></div></li>
+                    <li><div class="nav-list"><a href="#contact">Contact</a></div></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="fill">
-
-        <div class="image">
+        <div class="image" id="home">
             <div class="transp">
                 <div class="intro">
                     <h1><b>DON'T MAKE HACKERS WILD</b></h1>
@@ -34,8 +54,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="container">
+        <div class="container" id="about">
             <div class="end">
                 <div class="row">
                     <div class="col-lg-5">
@@ -60,8 +79,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="container">
+        <div class="container" id="skills">
             <div class="end">
                 <div class="row">
                     <div class="col-lg-5">
@@ -111,8 +129,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="container">
+        <div class="container" id="work">
             <div class="end">
                 <div class="work">
                     <div style="border-bottom: 2px solid rgb(200,165,0); width:50%; margin:auto;" class="value">
@@ -138,13 +155,11 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="arrow">
                     <div class="downArrow bounce">
                         <img title="View More" width="40" height="40" alt="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" />
                     </div>
                 </div>
-
                 <div class="works" style="display: none;" id="listwork2">
                     <div class="row">
                         <div class="col-lg-4">
@@ -166,8 +181,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="contactBackground">
+        <div class="contactBackground" id="contact">
             <div class="contactTranspo">
                 <div class="heading">
                     <h1>GET IN TOUCH</h1>
@@ -209,7 +223,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 </body>

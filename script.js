@@ -30,6 +30,17 @@ $(document).ready(function () {
         }, 1500);
     });
 
+    /*$(".nav-list").click(function(){
+        $("html, body").animate({
+            scrollTop: 3000
+        }, 1500);
+    });*/
+
+    var aw = $("#navigation-list").width();
+    $('.nav-list').css({
+        'width' : aw/5 + 'px'
+    });
+
     var pw = $('.skillsInfo').height();
     $('.skillValue').css({
         'height': pw + 'px'
