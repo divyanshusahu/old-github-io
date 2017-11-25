@@ -38,7 +38,7 @@ $(document).ready(function() {
     if (window.innerWidth >= 768) {
         var aw = $(".navigation-list").width();
         $('.nav-list').css({
-            'width': aw / 5 + 'px'
+            'width': aw / 6 + 'px'
         });
     }
 
