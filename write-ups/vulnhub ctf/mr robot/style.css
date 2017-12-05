@@ -1,0 +1,61 @@
+.top-bar ul {
+	list-style: none;
+	padding: 0px;
+	margin: 20px 50px;
+}
+
+.top-bar li {
+	float: right;
+	margin: 0 20px;
+	font-weight: bold;
+	font-size: 20px;
+	font-family: 'ABeeZee'
+}
+
+a {
+	text-decoration: none !important;
+	color : #1188ff;
+}
+
+a:hover {
+	text-decoration: none !important;
+	color: #444;
+}
+ .title {
+ 	font-weight: bold;
+ 	color: #4444ff;
+ 	text-align: center;
+ 	padding-top: 100px;
+ 	font-family: 'Belgrano';
+ }
+
+ .date {
+ 	text-align: center;
+ 	color: rgb(50,50,50);
+ 	font-family: 'Belgrano';
+ }
+
+ .challenge {
+ 	margin: 100px auto ;
+ 	width: 80%;
+ 	font-family: 'Ubuntu';
+ }
+
+ .description {
+ 	background-color: rgb(240,240,240);
+ 	padding: 25px;
+ }
+
+ .write-up {
+ 	padding: 25px;
+ }
+
+ .code-snippet {
+ 	word-spacing: 5px;
+ 	margin: 20px 0;
+ }
+
+ img {
+ 	width: 100%;
+ 	margin: 10px 0;
+ }
