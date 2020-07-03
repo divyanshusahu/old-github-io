@@ -5,11 +5,11 @@ function Home() {
       style={{ minHeight: "480px" }}
     >
       <section className="flex items-center justify-center px-4 xl:px-0">
-        <img
-          alt="Profile Image"
-          src="/images/profile.png"
-          style={{ width: "480px" }}
-        />
+        <picture>
+          <source srcSet="/images/profile.webp" type="image/webp" />
+          <source srcSet="/images/profile.png" type="image/png" />
+          <img alt="Profile Image" src="/images/profile.png" />
+        </picture>
       </section>
       <section className="flex items-center px-4 xl:px-0">
         <div>

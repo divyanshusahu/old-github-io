@@ -5,7 +5,11 @@ function AboutMe() {
       style={{ minHeight: "480px" }}
     >
       <section className="flex items-center justify-center lg:order-last px-4 xl:px-0">
-        <img alt="About Me SVG" src="/images/aboutme.svg" />
+        <picture>
+          <source srcSet="/images/aboutme.webp" type="image/webp" />
+          <source srcSet="/images/aboutme.png" type="image/png" />
+          <img alt="About Me SVG" src="/images/aboutme.png" />
+        </picture>
       </section>
       <section className="flex items-center text-lg px-4 xl:px-0">
         <p>

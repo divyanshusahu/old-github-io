@@ -7,11 +7,15 @@ function WorkExperience() {
       style={{ minHeight: "480px" }}
     >
       <section className="flex items-center justify-center px-4 xl:px-0">
-        <img alt="About Me SVG" src="/images/work.svg" />
+        <picture>
+          <source srcSet="/images/work.webp" type="image/webp" />
+          <source srcSet="/images/work.png" type="image/png" />
+          <img alt="About Me SVG" src="/images/work.png" />
+        </picture>
       </section>
       <section className="flex items-center px-4 xl:px-0">
         <DescriptionCard
-          avatar="/images/zeus-logo.svg"
+          avatar="/images/zeus-logo.png"
           avataralt="Zeus Numerix Logo"
           title="Zeus Numerix"
           subtitle="Full Stack Developer, Internship"

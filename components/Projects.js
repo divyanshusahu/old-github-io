@@ -1,4 +1,4 @@
-import {AiOutlineArrowRight} from "react-icons/ai";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 import DescriptionCard from "./DescriptionCard";
 
@@ -9,7 +9,11 @@ function Projects() {
       style={{ minHeight: "480px" }}
     >
       <section className="flex items-center justify-center lg:order-last px-4 xl:px-0">
-        <img alt="About Me SVG" src="/images/projects.svg" />
+        <picture>
+          <source srcSet="/images/projects.webp" type="image/webp" />
+          <source srcSet="/images/projects.png" type="image/png" />
+          <img alt="About Me SVG" src="/images/projects.png" />
+        </picture>
       </section>
       <section className="flex flex-col justify-around px-4 xl:px-0">
         <div className="mb-8">
@@ -36,7 +40,7 @@ function Projects() {
         </div>
         <div className="mb-8">
           <DescriptionCard
-            avatar="/images/ebook.gif"
+            avatar="/images/ebook.png"
             avataralt="Ebook Downloader"
             title="EBook Downloader"
             description="A python-based web scraping tool using Beautiful Soup library,
@@ -49,7 +53,8 @@ function Projects() {
           href="https://github.com/divyanshusahu?tab=repositories"
           className="text-gray-800 hover:underline"
         >
-          More at Github <AiOutlineArrowRight className="inline-block" size="1em" />
+          More at Github{" "}
+          <AiOutlineArrowRight className="inline-block" size="1em" />
         </a>
       </section>
     </div>

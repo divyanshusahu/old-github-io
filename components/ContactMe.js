@@ -1,4 +1,8 @@
-import { AiOutlineGithub, AiOutlineTwitter, AiOutlineMail } from "react-icons/ai";
+import {
+  AiOutlineGithub,
+  AiOutlineTwitter,
+  AiOutlineMail,
+} from "react-icons/ai";
 
 function ContactMe() {
   return (
@@ -7,7 +11,11 @@ function ContactMe() {
       style={{ minHeight: "480px" }}
     >
       <section className="flex items-center justify-center px-4 xl:px-0">
-        <img alt="About Me SVG" src="/images/contactme.svg" />
+        <picture>
+          <source srcSet="/images/contactme.webp" type="image/webp" />
+          <source srcSet="/images/contactme.png" type="image/png" />
+          <img alt="About Me SVG" src="/images/contactme.png" />
+        </picture>
       </section>
       <section className="flex items-center justify-center">
         <a href="https://github.com/divyanshusahu">
