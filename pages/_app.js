@@ -86,6 +86,19 @@ function MyApp({ Component, pageProps }) {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-169266417-2"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ` window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+                      gtag('config', 'UA-169266417-2');`,
+          }}
+        />
       </Head>
       <Component {...pageProps} />
     </>
