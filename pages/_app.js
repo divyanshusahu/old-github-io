@@ -3,6 +3,33 @@ import Head from "next/head";
 import "../styles/tailwind.css";
 
 function MyApp({ Component, pageProps }) {
+  const jsonld_website = {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    name: "Divyanshu Sahu",
+    url: "https://www.divyanshusahu.co",
+    creator: { "@type": "Person", name: "Divyanshu Sahu" },
+    keywords: [
+      "Divyanshu Sahu",
+      "Full Stack",
+      "Developerr",
+      "Web Application",
+      "Security",
+      "Information Security",
+      "IIT Roorkee",
+      "Zeus Numerix",
+      "ReactJS",
+      "Django",
+      "NextJS",
+      "Flask",
+    ],
+    sameAs: [
+      "https://www.facebook.com/divyanshu.sahu1997",
+      "https://www.instagram.com/_divyanshusahu_/",
+      "https://www.linkedin.com/in/divyanshu-sahu/",
+    ],
+  };
+
   return (
     <>
       <Head>
@@ -86,6 +113,45 @@ function MyApp({ Component, pageProps }) {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
+
+        <meta name="robots" content="index,follow" />
+        <meta name="googlebot" content="index,follow" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="divyan5hu" />
+        <meta name="twitter:creator" content="divyan5hu" />
+        <meta name="twitter:url" content="https://www.divyanshusahu.co" />
+        <meta name="twitter:title" content="Divyanshu Sahu" />
+        <meta
+          name="twitter:description"
+          content="Full Stack Developer and Web Application Security Enthusiast."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.divyanshusahu.co/images/profile.png"
+        />
+        <meta name="twitter:image:alt" content="Profile" />
+
+        <meta property="og:url" content="https://www.divyanshusahu.co" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Divyanshu Sahu" />
+        <meta
+          property="og:description"
+          content="Full Stack Developer and Web Application Security Enthusiast."
+        />
+        <meta
+          property="og:image"
+          content="https://www.divyanshusahu.co/images/profile.png"
+        />
+        <meta property="og:image:alt" content="Profile" />
+        <meta property="og:site_name" content="Divyanshu's Personal Website" />
+        <meta property="og:locale" content="en_US" />
+
+        <script
+          key="jsonld_website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld_website) }}
+        />
 
         <script
           async
