@@ -1,9 +1,16 @@
+import Head from "next/head";
+
+import Layout from "../components/Layout";
+
 function Index() {
   return (
-    <main className="container mx-auto sm:container">
-      <h1>Hello from Divyanshu</h1>
-    </main>
-  )
+    <div>
+      <Head>
+        <title>Divyanshu Sahu: Full Stack Developer</title>
+      </Head>
+      <Layout />
+    </div>
+  );
 }
 
 export default Index;
