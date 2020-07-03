@@ -13,7 +13,7 @@ function DescriptionCard(props) {
           <p className="text-gray-800 text-xs pt-8">{props.extra}</p>
           <a
             href={props.previewlink}
-            className="font-bold text-sm text-blue-600 hover:underline"
+            className="font-bold text-sm text-blue-700 hover:underline"
           >
             Preview
           </a>
