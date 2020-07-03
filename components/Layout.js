@@ -15,7 +15,7 @@ function Layout() {
         <AboutMe />
       </main>
       <main id="work" className="pt-16">
-        <h3 className="text-4xl pb-8">Experience</h3>
+        <h3 className="text-4xl text-center pb-8">Experience</h3>
         <WorkExperience />
       </main>
       <main id="projects" className="pt-16">

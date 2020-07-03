@@ -3,10 +3,10 @@ import { AiOutlineGithub, AiOutlineTwitter, AiOutlineMail } from "react-icons/ai
 function ContactMe() {
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-2 gap-16"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-16"
       style={{ minHeight: "480px" }}
     >
-      <section className="flex items-center justify-center">
+      <section className="flex items-center justify-center px-4 xl:px-0">
         <img alt="About Me SVG" src="/images/contactme.svg" />
       </section>
       <section className="flex items-center justify-center">
